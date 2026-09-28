@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="robots" content="noindex, nofollow" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Okara · Etapa 3 · Asesora 24/7</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ivory:#FAF7F2; --bone:#F1ECE3; --sand:#E6DFD2;
+    --mocha:#8E7C68; --cocoa:#3F352B; --night:#1C1814;
+    --gold:#B89968; --golden:#D4B98A; --paper:#FBFAF7;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    background:#EDE7DC; color:var(--night);
+    font-family:'Inter',sans-serif; font-size:16.5px; line-height:1.7;
+    -webkit-font-smoothing:antialiased; padding:2rem 1rem;
+  }
+  .sheet { width:210mm; max-width:100%; margin:0 auto; background:var(--paper); padding:18mm 16mm;
+           box-shadow:0 30px 80px -30px rgba(28,24,20,.35); }
+  .actionbar { max-width:210mm; margin:0 auto 1.5rem; text-align:center; }
+  .print-btn { display:inline-flex; align-items:center; gap:.6rem; background:var(--night); color:var(--ivory);
+    border:none; cursor:pointer; padding:.9rem 1.8rem; border-radius:999px; font-family:'Inter',sans-serif;
+    font-size:12px; letter-spacing:.22em; text-transform:uppercase; transition:background .3s cubic-bezier(.22,.61,.36,1); }
+  .print-btn:hover { background:var(--gold); color:var(--night); }
+  .print-hint { font-size:12px; color:var(--mocha); margin-top:.6rem; }
+
+  .brand-row { display:flex; align-items:center; justify-content:space-between; gap:1rem; }
+  .brand { font-family:'Cormorant Garamond',serif; font-size:30px; letter-spacing:.28em; color:var(--night); }
+  .brand-sub { font-size:10px; letter-spacing:.3em; text-transform:uppercase; color:var(--mocha); }
+  .doc-date { font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:var(--mocha); text-align:right; }
+  .hairline { height:1px; background:linear-gradient(to right, transparent, rgba(28,24,20,.22), transparent); margin:1.4rem 0; }
+
+  .col-tag { font-size:11px; letter-spacing:.3em; text-transform:uppercase; color:var(--mocha); }
+  .headline { font-family:'Cormorant Garamond',serif; font-size:46px; line-height:1.05; color:var(--night); margin-top:.4rem; }
+  .headline em { font-style:italic; color:var(--gold); }
+  .lede { font-size:16px; color:var(--cocoa); max-width:64ch; margin-top:.9rem; }
+
+  .route { display:grid; grid-template-columns:repeat(3,1fr); gap:.7rem; margin-top:1.4rem; }
+  .step { border:1px solid var(--sand); border-radius:12px; padding:.75rem .9rem; background:transparent; opacity:.55; }
+  .step.on { background:#fff; border-color:var(--gold); opacity:1; box-shadow:0 10px 30px -18px rgba(28,24,20,.35); }
+  .step-n { font-size:10px; letter-spacing:.22em; text-transform:uppercase; color:var(--gold); font-weight:600; }
+  .step-t { font-family:'Cormorant Garamond',serif; font-size:18px; line-height:1.2; color:var(--night); margin-top:.15rem; }
+
+  h2.sec { font-family:'Cormorant Garamond',serif; font-size:30px; line-height:1.15; color:var(--night); margin-top:2.4rem; }
+  h2.sec .n { font-family:'Inter',sans-serif; color:var(--gold); font-size:12px; font-weight:600;
+              letter-spacing:.18em; vertical-align:.5em; margin-right:.7rem; font-variant-numeric:tabular-nums lining-nums; }
+  p.tx { font-size:14.5px; color:var(--cocoa); margin-top:.7rem; max-width:66ch; }
+  p.tx strong { color:var(--night); }
+
+  .box { border-radius:14px; padding:1.2rem 1.3rem; margin-top:1.1rem; break-inside:avoid; }
+  .box-a { background:#fff; border:1px solid var(--sand); }
+  .box-gold { background:rgba(212,185,138,.14); border:1px solid rgba(184,153,104,.42); }
+  .box-dark { background:linear-gradient(170deg,#1C1814 0%,#3F352B 100%); color:var(--ivory); border:1px solid var(--gold); }
+  .box-head { font-size:12px; letter-spacing:.18em; text-transform:uppercase; font-weight:600; }
+  .box-a .box-head, .box-gold .box-head { color:var(--gold); }
+  .box-dark .box-head { color:var(--golden); }
+  .box p { font-size:14px; margin-top:.55rem; }
+  .box-a p, .box-gold p { color:var(--cocoa); }
+  .box-dark p { color:rgba(250,247,242,.82); }
+
+  .group { margin-top:1.3rem; break-inside:avoid; }
+  .group-h { font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:var(--mocha); font-weight:600;
+             padding-bottom:.35rem; border-bottom:1px solid var(--sand); }
+  ul.li { list-style:none; margin-top:.5rem; }
+  ul.li li { font-size:14px; color:var(--cocoa); padding:.3rem 0 .3rem 1.5rem; position:relative; }
+  ul.li li::before { content:'✓'; position:absolute; left:0; color:var(--gold); font-weight:600; }
+  ul.li li strong { color:var(--night); }
+  ul.no li::before { content:'—'; color:var(--mocha); font-weight:400; }
+
+  table.t { width:100%; border-collapse:collapse; margin-top:1rem; font-size:13.5px; }
+  table.t td { padding:.6rem; border-bottom:1px solid var(--sand); color:var(--cocoa); vertical-align:top; }
+  table.t td:first-child { color:var(--gold); font-weight:600; white-space:nowrap; width:8.5rem;
+                           font-size:11px; letter-spacing:.14em; text-transform:uppercase; padding-top:.8rem; }
+  table.t td strong { color:var(--night); }
+
+  .price-grid { display:grid; grid-template-columns:1fr 1fr; gap:1.2rem; margin-top:1.2rem; }
+  .pcard { border-radius:16px; padding:1.4rem; break-inside:avoid; }
+  .pcard-a { background:#fff; border:1px solid var(--sand); }
+  .pcard-b { background:linear-gradient(170deg,#1C1814 0%,#3F352B 100%); border:1px solid var(--gold); color:var(--ivory); }
+  .pk { font-size:10.5px; letter-spacing:.24em; text-transform:uppercase; }
+  .pcard-a .pk { color:var(--mocha); } .pcard-b .pk { color:var(--golden); }
+  .pv { font-family:'Cormorant Garamond',serif; font-size:38px; line-height:1.05; margin-top:.35rem; font-variant-numeric:lining-nums; }
+  .pcard-a .pv { color:var(--night); } .pcard-b .pv { color:var(--golden); }
+  .pv small { font-size:17px; }
+  .pn { font-size:12.5px; margin-top:.3rem; }
+  .pcard-a .pn { color:var(--mocha); } .pcard-b .pn { color:rgba(250,247,242,.72); }
+  .ptax { font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; margin-top:.5rem; }
+  .pcard-a .ptax { color:var(--mocha); } .pcard-b .ptax { color:var(--golden); }
+  .price-grid.one { grid-template-columns:1fr; max-width:24rem; }
+  table.bill { width:100%; border-collapse:collapse; margin-top:1rem; font-size:13px; font-variant-numeric:tabular-nums lining-nums; }
+  table.bill td { padding:.35rem 0; }
+  table.bill td:last-child { text-align:right; }
+  .pcard-a table.bill td { color:var(--cocoa); border-top:1px solid var(--sand); }
+  .pcard-b table.bill td { color:rgba(250,247,242,.78); border-top:1px solid rgba(212,185,138,.3); }
+  table.bill tr.tot td { font-weight:600; padding-top:.5rem; }
+  .pcard-a table.bill tr.tot td { color:var(--night); border-top:1px solid var(--mocha); }
+  .pcard-b table.bill tr.tot td { color:var(--golden); border-top:1px solid var(--golden); }
+  p.billnote { font-size:12px; color:var(--mocha); margin-top:.7rem; }
+
+  .foot { margin-top:2.6rem; padding-top:1.1rem; border-top:1px solid var(--sand); font-size:11.5px; color:var(--mocha); }
+
+  @page { size:A4; margin:12mm; }
+  @media print {
+    body { background:#fff; padding:0; font-size:11.5pt; }
+    .sheet { width:auto; box-shadow:none; padding:0; }
+    .actionbar { display:none !important; }
+    .box, .pcard, .group, h2.sec, table.t tr { break-inside:avoid; }
+    h2.sec { break-after:avoid; }
+    h2.sec { font-size:21pt; margin-top:1.4rem; }
+    .headline { font-size:32pt; }
+    .pv { font-size:20pt; }
+    p.tx, .box p, ul.li li, table.t { font-size:9pt; }
+    * { -webkit-print-color-adjust:exact !important; print-color-adjust:exact !important; }
+  }
+  @media screen and (max-width:760px) {
+    .route, .price-grid { grid-template-columns:1fr; }
+    .price-grid.one { max-width:none; }
+    .headline { font-size:32px; }
+    .sheet { padding:8mm 6mm; }
+    table.t td:first-child { white-space:normal; width:auto; }
+  }
+
+  .pnav { max-width:210mm; margin:0 auto 1rem; display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap;
+          font-family:'Inter',sans-serif; font-size:11px; letter-spacing:.2em; text-transform:uppercase; }
+  .pnav a { color:var(--cocoa); text-decoration:none; padding:.5rem 0; }
+  .pnav a:hover { color:var(--gold); }
+  @media print { .pnav { display:none !important; } }
+</style>
+</head>
+<body>
+
+<nav class="pnav"><a href="../etapa-2/">← Etapa 2</a><a href="../">Las tres etapas</a><span></span></nav>
+
+<div class="actionbar">
+  <button class="print-btn" onclick="window.print()">🖨 Imprimir / Guardar como PDF</button>
+  <p class="print-hint">Al imprimir, active "Gráficos de fondo" para conservar los colores Okara.</p>
+</div>
+
+<div class="sheet">
+
+  <div class="brand-row">
+    <div>
+      <div class="brand">OKARA</div>
+      <div class="brand-sub">Clínica Estética</div>
+    </div>
+    <div class="doc-date">
+      Etapa 3 de 3 · Asesora 24/7<br/>
+      Septiembre 2026 · Propuesta
+    </div>
+  </div>
+
+  <div class="hairline"></div>
+
+  <p class="col-tag">— Atención a toda hora, con una persona detrás cuando hace falta</p>
+  <h1 class="headline">Que nadie se quede<br/><em>esperando respuesta.</em></h1>
+  <p class="lede">Una asesora virtual con voz propia, construida sobre ElevenLabs, que atiende
+    <strong>todos los canales que llegan a Kommo</strong> —WhatsApp, Instagram y Facebook— a cualquier
+    hora, incluidos domingos y feriados. No tiene pantalla propia: trabaja por detrás, sobre la bandeja
+    de Kommo y la agenda de la clínica, gestiona las citas de principio a fin y le pasa la conversación
+    a una persona cuando el caso lo pide.</p>
+
+  <div class="route">
+    <div class="step">
+      <div class="step-n">Etapa 1</div>
+      <div class="step-t">Agenda integrada</div>
+    </div>
+    <div class="step">
+      <div class="step-n">Etapa 2</div>
+      <div class="step-t">Kommo inteligente</div>
+    </div>
+    <div class="step on">
+      <div class="step-n">Etapa 3 · esta propuesta</div>
+      <div class="step-t">Asesora 24/7</div>
+    </div>
+  </div>
+
+  <h2 class="sec"><span class="n">01</span>El problema que resuelve</h2>
+  <p class="tx">
+    Las consultas por WhatsApp llegan cuando llegan: de noche, los domingos, en medio de una atención.
+    La paciente que escribe a las diez de la noche espera hasta el día siguiente, y muchas veces ya
+    escribió a otra clínica. <strong>No es un problema de esfuerzo del equipo, es un problema de horario.</strong>
+  </p>
+  <p class="tx">
+    La etapa 2 junta todas las conversaciones en un mismo lugar. Lo que falta es quien responda
+    cuando el equipo no está.
+  </p>
+
+  <h2 class="sec"><span class="n">02</span>Qué incluye</h2>
+  <ul class="li">
+    <li><strong>Atiende todos los canales de la bandeja</strong>: WhatsApp, Instagram y Facebook, con la misma voz y las mismas reglas.</li>
+    <li><strong>Responde sola, por escrito y por voz</strong>: entiende las notas de voz y contesta con voz propia o por texto.</li>
+    <li><strong>Orienta sobre tratamientos</strong> con el contenido real de la clínica, el mismo que ya está publicado en la web.</li>
+    <li><strong>Agenda valoraciones</strong> directamente en okara.pe/agenda, y el recordatorio queda programado.</li>
+    <li><strong>Reconoce a la paciente</strong> igual que Sofía en la web —DNI y código de verificación— y <strong>gestiona sus citas de principio a fin</strong>: confirma, reprograma o cancela directamente en la agenda, sin pasar por recepción.</li>
+    <li><strong>Un solo conocimiento</strong>: la asesora y Sofía responden con la misma información de la clínica, que el equipo actualiza desde el panel.</li>
+    <li><strong>Pasa la conversación a una persona</strong> cuando la consulta es clínica o delicada, o cuando la paciente lo pide, con todo el historial a la vista en Kommo.</li>
+    <li><strong>Opcional:</strong> una línea telefónica que atiende llamadas fuera de horario con la misma voz.</li>
+  </ul>
+
+  <div class="box box-dark">
+    <div class="box-head">El límite, escrito desde el principio</div>
+    <p>
+      La asesora virtual <strong>no diagnostica y no promete resultados</strong>. Ante cualquier consulta
+      médica, deriva a valoración presencial. Es la misma regla que ya rige a Sofía en la web: no es una
+      limitación técnica, es una decisión de cómo se atiende en una clínica.
+    </p>
+  </div>
+
+  <div class="box box-a">
+    <div class="box-head">Una decisión que tomamos por ustedes</div>
+    <p>
+      ElevenLabs puede conectarse directo a WhatsApp, pero hoy <strong>no permite pasarle la
+      conversación a una persona</strong>, y además exige sacar el número de Kommo. Para una clínica
+      médico-estética eso es descalificante: la paciente quedaría encerrada hablando con una máquina.
+      Por eso <strong>el número se queda en Kommo</strong> y ElevenLabs trabaja por detrás: la voz y la
+      conversación son de ElevenLabs, y el traspaso a una asesora lo hace Kommo, donde funciona desde el
+      primer día.
+    </p>
+  </div>
+
+  <h2 class="sec"><span class="n">03</span>Cómo se construye</h2>
+  <table class="t">
+    <tr><td>Semana 1</td><td><strong>Conocimiento de la clínica</strong>: tratamientos, aparatología, sedes, horarios y preguntas frecuentes.</td></tr>
+    <tr><td>Semana 2</td><td><strong>Personalidad, voz y reglas de derivación</strong>: cuándo responde y cuándo pasa a una persona.</td></tr>
+    <tr><td>Semana 3</td><td><strong>Conexión con Kommo —todos sus canales— y con la agenda</strong>, y pruebas internas.</td></tr>
+    <tr><td>Semana 4</td><td><strong>Salida gradual</strong>: primero fuera de horario, después las 24 horas, con ajuste fino sobre conversaciones reales.</td></tr>
+  </table>
+
+  <h2 class="sec"><span class="n">04</span>Requisitos</h2>
+  <ul class="li">
+    <li><strong>Etapas 1 y 2 funcionando</strong>: la asesora agenda en la agenda de la etapa 1 y atiende por el Kommo de la etapa 2.</li>
+  </ul>
+
+  <h2 class="sec"><span class="n">05</span>Inversión</h2>
+  
+  <div class="price-grid">
+    <div class="pcard pcard-a">
+      <div class="pk">Implementación</div>
+      <div class="pv">S/ 3,500 <small>+ IGV</small></div>
+      <div class="pn">Pago único al iniciar la etapa</div>
+      
+      <table class="bill">
+        <tr><td>Subtotal</td><td>S/ 3,500.00</td></tr>
+        <tr><td>IGV (18%)</td><td>S/ 630.00</td></tr>
+        <tr class="tot"><td>Total factura</td><td>S/ 4,130.00</td></tr>
+      </table>
+    </div>
+    
+    <div class="pcard pcard-b">
+      <div class="pk">Operación mensual</div>
+      <div class="pv">S/ 1,200 <small>/ mes + IGV</small></div>
+      <div class="pn">Desde que la asesora empieza a atender. Cubre su ajuste continuo, el monitoreo de las tres etapas y un reporte mensual de citas, recordatorios y conversaciones.</div>
+      
+      <table class="bill">
+        <tr><td>Subtotal</td><td>S/ 1,200.00 / mes</td></tr>
+        <tr><td>IGV (18%)</td><td>S/ 216.00 / mes</td></tr>
+        <tr class="tot"><td>Total factura</td><td>S/ 1,416.00 / mes</td></tr>
+      </table>
+    </div>
+  </div>
+  <p class="billnote">Se emite factura electrónica.</p>
+  <p class="tx"><strong>Plazo: 4 semanas.</strong></p>
+
+  <table class="t">
+    <tr><td>Consumos</td><td><strong>ElevenLabs</strong> y los <strong>mensajes de WhatsApp</strong> que responde la asesora, facturados directamente a la clínica, sin intermediación ni recargo. Estimado según volumen: <strong>S/ 420 a S/ 1,750 al mes</strong>. Los mensajes de Instagram y Facebook no tienen costo por mensaje.</td></tr>
+  </table>
+
+  <div class="box box-gold">
+    <div class="box-head">Una fecha que conviene tener presente</div>
+    <p>
+      Desde el <strong>1 de octubre de 2026</strong>, WhatsApp cobra por cada mensaje que responde una
+      empresa. Por eso la asesora está diseñada para <strong>responder completo en pocos mensajes</strong>
+      en lugar de muchos globos cortos: es la diferencia entre un consumo razonable y uno que se dispara
+      sin dar mejor atención.
+    </p>
+  </div>
+
+  <div class="box box-dark">
+    <div class="box-head">Para ponerlo en perspectiva</div>
+    <p>
+      Una asesora en Lima representa entre <strong>S/ 2,200 y S/ 3,500 mensuales</strong> con cargas,
+      cubre un horario y toma vacaciones. La asesora virtual atiende la primera línea <strong>las 24
+      horas</strong>, responde en segundos y no deja ninguna consulta sin registrar. No reemplaza al
+      equipo: le saca de encima lo repetitivo para que dedique su tiempo a las pacientes que están por
+      decidir.
+    </p>
+  </div>
+
+  <div class="foot">
+    Okara · Clínica Estética — Propuesta válida 30 días. Los precios se expresan sin IGV; el total de
+    cada factura figura en el desglose. Los consumos de plataformas, cuando los hay, se facturan
+    directamente a la clínica según uso real. El plazo corre
+    desde el pago y la entrega de la información que le corresponde a la clínica.
+  </div>
+
+</div>
+
+</body>
+</html>

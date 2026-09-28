@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="robots" content="noindex, nofollow" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Okara · Etapa 1 · Agenda integrada</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ivory:#FAF7F2; --bone:#F1ECE3; --sand:#E6DFD2;
+    --mocha:#8E7C68; --cocoa:#3F352B; --night:#1C1814;
+    --gold:#B89968; --golden:#D4B98A; --paper:#FBFAF7;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    background:#EDE7DC; color:var(--night);
+    font-family:'Inter',sans-serif; font-size:16.5px; line-height:1.7;
+    -webkit-font-smoothing:antialiased; padding:2rem 1rem;
+  }
+  .sheet { width:210mm; max-width:100%; margin:0 auto; background:var(--paper); padding:18mm 16mm;
+           box-shadow:0 30px 80px -30px rgba(28,24,20,.35); }
+  .actionbar { max-width:210mm; margin:0 auto 1.5rem; text-align:center; }
+  .print-btn { display:inline-flex; align-items:center; gap:.6rem; background:var(--night); color:var(--ivory);
+    border:none; cursor:pointer; padding:.9rem 1.8rem; border-radius:999px; font-family:'Inter',sans-serif;
+    font-size:12px; letter-spacing:.22em; text-transform:uppercase; transition:background .3s cubic-bezier(.22,.61,.36,1); }
+  .print-btn:hover { background:var(--gold); color:var(--night); }
+  .print-hint { font-size:12px; color:var(--mocha); margin-top:.6rem; }
+
+  .brand-row { display:flex; align-items:center; justify-content:space-between; gap:1rem; }
+  .brand { font-family:'Cormorant Garamond',serif; font-size:30px; letter-spacing:.28em; color:var(--night); }
+  .brand-sub { font-size:10px; letter-spacing:.3em; text-transform:uppercase; color:var(--mocha); }
+  .doc-date { font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:var(--mocha); text-align:right; }
+  .hairline { height:1px; background:linear-gradient(to right, transparent, rgba(28,24,20,.22), transparent); margin:1.4rem 0; }
+
+  .col-tag { font-size:11px; letter-spacing:.3em; text-transform:uppercase; color:var(--mocha); }
+  .headline { font-family:'Cormorant Garamond',serif; font-size:46px; line-height:1.05; color:var(--night); margin-top:.4rem; }
+  .headline em { font-style:italic; color:var(--gold); }
+  .lede { font-size:16px; color:var(--cocoa); max-width:64ch; margin-top:.9rem; }
+
+  .route { display:grid; grid-template-columns:repeat(3,1fr); gap:.7rem; margin-top:1.4rem; }
+  .step { border:1px solid var(--sand); border-radius:12px; padding:.75rem .9rem; background:transparent; opacity:.55; }
+  .step.on { background:#fff; border-color:var(--gold); opacity:1; box-shadow:0 10px 30px -18px rgba(28,24,20,.35); }
+  .step-n { font-size:10px; letter-spacing:.22em; text-transform:uppercase; color:var(--gold); font-weight:600; }
+  .step-t { font-family:'Cormorant Garamond',serif; font-size:18px; line-height:1.2; color:var(--night); margin-top:.15rem; }
+
+  h2.sec { font-family:'Cormorant Garamond',serif; font-size:30px; line-height:1.15; color:var(--night); margin-top:2.4rem; }
+  h2.sec .n { font-family:'Inter',sans-serif; color:var(--gold); font-size:12px; font-weight:600;
+              letter-spacing:.18em; vertical-align:.5em; margin-right:.7rem; font-variant-numeric:tabular-nums lining-nums; }
+  p.tx { font-size:14.5px; color:var(--cocoa); margin-top:.7rem; max-width:66ch; }
+  p.tx strong { color:var(--night); }
+
+  .box { border-radius:14px; padding:1.2rem 1.3rem; margin-top:1.1rem; break-inside:avoid; }
+  .box-a { background:#fff; border:1px solid var(--sand); }
+  .box-gold { background:rgba(212,185,138,.14); border:1px solid rgba(184,153,104,.42); }
+  .box-dark { background:linear-gradient(170deg,#1C1814 0%,#3F352B 100%); color:var(--ivory); border:1px solid var(--gold); }
+  .box-head { font-size:12px; letter-spacing:.18em; text-transform:uppercase; font-weight:600; }
+  .box-a .box-head, .box-gold .box-head { color:var(--gold); }
+  .box-dark .box-head { color:var(--golden); }
+  .box p { font-size:14px; margin-top:.55rem; }
+  .box-a p, .box-gold p { color:var(--cocoa); }
+  .box-dark p { color:rgba(250,247,242,.82); }
+
+  .group { margin-top:1.3rem; break-inside:avoid; }
+  .group-h { font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:var(--mocha); font-weight:600;
+             padding-bottom:.35rem; border-bottom:1px solid var(--sand); }
+  ul.li { list-style:none; margin-top:.5rem; }
+  ul.li li { font-size:14px; color:var(--cocoa); padding:.3rem 0 .3rem 1.5rem; position:relative; }
+  ul.li li::before { content:'✓'; position:absolute; left:0; color:var(--gold); font-weight:600; }
+  ul.li li strong { color:var(--night); }
+  ul.no li::before { content:'—'; color:var(--mocha); font-weight:400; }
+
+  table.t { width:100%; border-collapse:collapse; margin-top:1rem; font-size:13.5px; }
+  table.t td { padding:.6rem; border-bottom:1px solid var(--sand); color:var(--cocoa); vertical-align:top; }
+  table.t td:first-child { color:var(--gold); font-weight:600; white-space:nowrap; width:8.5rem;
+                           font-size:11px; letter-spacing:.14em; text-transform:uppercase; padding-top:.8rem; }
+  table.t td strong { color:var(--night); }
+
+  .price-grid { display:grid; grid-template-columns:1fr 1fr; gap:1.2rem; margin-top:1.2rem; }
+  .pcard { border-radius:16px; padding:1.4rem; break-inside:avoid; }
+  .pcard-a { background:#fff; border:1px solid var(--sand); }
+  .pcard-b { background:linear-gradient(170deg,#1C1814 0%,#3F352B 100%); border:1px solid var(--gold); color:var(--ivory); }
+  .pk { font-size:10.5px; letter-spacing:.24em; text-transform:uppercase; }
+  .pcard-a .pk { color:var(--mocha); } .pcard-b .pk { color:var(--golden); }
+  .pv { font-family:'Cormorant Garamond',serif; font-size:38px; line-height:1.05; margin-top:.35rem; font-variant-numeric:lining-nums; }
+  .pcard-a .pv { color:var(--night); } .pcard-b .pv { color:var(--golden); }
+  .pv small { font-size:17px; }
+  .pn { font-size:12.5px; margin-top:.3rem; }
+  .pcard-a .pn { color:var(--mocha); } .pcard-b .pn { color:rgba(250,247,242,.72); }
+  .ptax { font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; margin-top:.5rem; }
+  .pcard-a .ptax { color:var(--mocha); } .pcard-b .ptax { color:var(--golden); }
+  .price-grid.one { grid-template-columns:1fr; max-width:24rem; }
+  table.bill { width:100%; border-collapse:collapse; margin-top:1rem; font-size:13px; font-variant-numeric:tabular-nums lining-nums; }
+  table.bill td { padding:.35rem 0; }
+  table.bill td:last-child { text-align:right; }
+  .pcard-a table.bill td { color:var(--cocoa); border-top:1px solid var(--sand); }
+  .pcard-b table.bill td { color:rgba(250,247,242,.78); border-top:1px solid rgba(212,185,138,.3); }
+  table.bill tr.tot td { font-weight:600; padding-top:.5rem; }
+  .pcard-a table.bill tr.tot td { color:var(--night); border-top:1px solid var(--mocha); }
+  .pcard-b table.bill tr.tot td { color:var(--golden); border-top:1px solid var(--golden); }
+  p.billnote { font-size:12px; color:var(--mocha); margin-top:.7rem; }
+
+  .foot { margin-top:2.6rem; padding-top:1.1rem; border-top:1px solid var(--sand); font-size:11.5px; color:var(--mocha); }
+
+  @page { size:A4; margin:12mm; }
+  @media print {
+    body { background:#fff; padding:0; font-size:11.5pt; }
+    .sheet { width:auto; box-shadow:none; padding:0; }
+    .actionbar { display:none !important; }
+    .box, .pcard, .group, h2.sec, table.t tr { break-inside:avoid; }
+    h2.sec { break-after:avoid; }
+    h2.sec { font-size:21pt; margin-top:1.4rem; }
+    .headline { font-size:32pt; }
+    .pv { font-size:20pt; }
+    p.tx, .box p, ul.li li, table.t { font-size:9pt; }
+    * { -webkit-print-color-adjust:exact !important; print-color-adjust:exact !important; }
+  }
+  @media screen and (max-width:760px) {
+    .route, .price-grid { grid-template-columns:1fr; }
+    .price-grid.one { max-width:none; }
+    .headline { font-size:32px; }
+    .sheet { padding:8mm 6mm; }
+    table.t td:first-child { white-space:normal; width:auto; }
+  }
+
+  .pnav { max-width:210mm; margin:0 auto 1rem; display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap;
+          font-family:'Inter',sans-serif; font-size:11px; letter-spacing:.2em; text-transform:uppercase; }
+  .pnav a { color:var(--cocoa); text-decoration:none; padding:.5rem 0; }
+  .pnav a:hover { color:var(--gold); }
+  @media print { .pnav { display:none !important; } }
+</style>
+</head>
+<body>
+
+<nav class="pnav"><span></span><a href="../">Las tres etapas</a><a href="../etapa-2/">Etapa 2 →</a></nav>
+
+<div class="actionbar">
+  <button class="print-btn" onclick="window.print()">🖨 Imprimir / Guardar como PDF</button>
+  <p class="print-hint">Al imprimir, active "Gráficos de fondo" para conservar los colores Okara.</p>
+</div>
+
+<div class="sheet">
+
+  <div class="brand-row">
+    <div>
+      <div class="brand">OKARA</div>
+      <div class="brand-sub">Clínica Estética</div>
+    </div>
+    <div class="doc-date">
+      Etapa 1 de 3 · Agenda integrada<br/>
+      Septiembre 2026 · Propuesta
+    </div>
+  </div>
+
+  <div class="hairline"></div>
+
+  <p class="col-tag">— Una sola agenda para las dos sedes, desde cualquier lugar</p>
+  <h1 class="headline">Toda la clínica,<br/><em>en la misma agenda.</em></h1>
+  <p class="lede">Un sistema de agenda clínica propio, dentro de la plataforma web que Okara ya tiene, en
+    <strong>okara.pe/agenda</strong>. Recepción, call center y profesionales trabajan sobre el mismo
+    calendario, desde la clínica o fuera de ella, sincronizado con <strong>Google Calendar</strong>, y
+    los recordatorios salen solos.</p>
+
+  <div class="route">
+    <div class="step on">
+      <div class="step-n">Etapa 1 · esta propuesta</div>
+      <div class="step-t">Agenda integrada</div>
+    </div>
+    <div class="step">
+      <div class="step-n">Etapa 2</div>
+      <div class="step-t">Kommo inteligente</div>
+    </div>
+    <div class="step">
+      <div class="step-n">Etapa 3</div>
+      <div class="step-t">Asesora 24/7</div>
+    </div>
+  </div>
+
+  <h2 class="sec"><span class="n">01</span>Por qué ahora</h2>
+  <p class="tx">
+    Hoy la agenda corre en un equipo instalado dentro de la clínica. Eso tiene tres límites: solo se
+    puede usar desde ahí, depende de que ese equipo funcione, y a medida que crece el equipo —dos sedes,
+    recepción, call center, cerca de veinte profesionales y máquinas que se comparten— se vuelve más
+    fácil que dos personas agenden lo mismo a la misma hora.
+  </p>
+  <div class="box box-gold">
+    <div class="box-head">Lo que cambia</div>
+    <p>
+      Una agenda en línea, con respaldo, a la que entra todo el equipo con su propio usuario. <strong>La
+      propia agenda impide los choques</strong>: no deja reservar dos veces a la misma profesional ni la
+      misma máquina en el mismo horario.
+    </p>
+    <p>
+      Funciona <strong>dentro de la web que Okara ya tiene</strong>: no hay nada que instalar. Se entra
+      desde el navegador, en la clínica, en casa o desde el celular.
+    </p>
+  </div>
+
+  <h2 class="sec"><span class="n">02</span>Qué incluye</h2>
+
+  <div class="group">
+    <div class="group-h">Agenda</div>
+    <ul class="li">
+      <li><strong>Calendario por sede</strong> — Surco y Jesús María — con vista de día, semana y mes.</li>
+      <li><strong>Vista de día con una columna por profesional</strong>, para ver de un vistazo quién está libre.</li>
+      <li><strong>Sin dobles reservas</strong>: ni de la misma profesional ni de la misma máquina en el mismo horario.</li>
+      <li><strong>Citas con su estado</strong>: reservada, confirmada, atendida, no asistió, reprogramada o cancelada.</li>
+      <li><strong>Reprogramar es arrastrar la cita</strong> a otro horario; queda registrado quién la movió.</li>
+    </ul>
+  </div>
+
+  <div class="group">
+    <div class="group-h">Sincronizada con Google Calendar</div>
+    <ul class="li">
+      <li><strong>Cada profesional ve sus citas en su Google Calendar</strong>, en el celular: cuando se agenda, se mueve o se cancela una cita, se actualiza sola.</li>
+      <li><strong>Un calendario por sede</strong> en Google, para quien necesita ver el día completo de Surco o de Jesús María.</li>
+      <li><strong>Los bloqueos personales cuentan</strong>: si una profesional marca en su Google Calendar que no estará disponible, la agenda no deja reservarla en ese horario.</li>
+      <li><strong>La agenda de Okara es la que manda</strong>: las citas se crean y se mueven en okara.pe/agenda, y Google las muestra. En Google aparece solo lo necesario —nombre de pila y tratamiento—; la ficha completa se queda en la agenda.</li>
+    </ul>
+  </div>
+
+  <div class="group">
+    <div class="group-h">Pacientes y seguimiento</div>
+    <ul class="li">
+      <li><strong>Ficha de contacto de cada paciente</strong>: datos y DNI, tratamientos de interés, historial de citas y notas del equipo. Sin fichas duplicadas: el DNI identifica a cada paciente.</li>
+      <li><strong>Lista de seguimiento</strong>: a quién volver a llamar — la siguiente sesión de un tratamiento, quien no asistió, quien pidió reprogramar.</li>
+      <li><strong>Los contactos de la web entran solos</strong>: lo que hoy captan Sofía y el formulario aparece como paciente por contactar.</li>
+    </ul>
+  </div>
+
+  <div class="group">
+    <div class="group-h">Recordatorios</div>
+    <ul class="li">
+      <li><strong>Correo automático</strong> el día anterior a cada cita, con un enlace para confirmar o pedir reprogramación.</li>
+      <li><strong>Recordatorio por WhatsApp en un toque</strong>: recepción pulsa un botón y se abre el chat con la paciente y el mensaje ya escrito.</li>
+      <li>La confirmación de la paciente <strong>cambia sola el estado de la cita</strong> en la agenda.</li>
+    </ul>
+  </div>
+
+  <div class="group">
+    <div class="group-h">Equipo y configuración</div>
+    <ul class="li">
+      <li><strong>Accesos por rol</strong>: recepción y call center agendan; cada profesional ve su propia agenda; administración ve todo.</li>
+      <li><strong>Todo se configura desde el panel</strong>, sin pedirnos cambios: sedes, horarios, profesionales, máquinas, duración de cada tratamiento y textos de los recordatorios.</li>
+      <li><strong>Migración de la agenda actual</strong>: pasamos una sola vez los pacientes y las citas futuras desde el sistema de hoy.</li>
+      <li><strong>Capacitación</strong> del equipo de recepción y call center.</li>
+    </ul>
+  </div>
+
+  <h2 class="sec"><span class="n">03</span>Cómo se construye</h2>
+  <table class="t">
+    <tr><td>Semana 1</td><td><strong>Levantamiento</strong> con el equipo: cómo se agenda hoy, profesionales, horarios, máquinas y duraciones. Exportación de la agenda actual.</td></tr>
+    <tr><td>Semanas 2 y 3</td><td><strong>La agenda</strong>: sedes, profesionales, máquinas, calendario y citas, con el bloqueo de choques.</td></tr>
+    <tr><td>Semana 4</td><td><strong>Pacientes, seguimiento, recordatorios y Google Calendar</strong>, y la entrada de los contactos de la web.</td></tr>
+    <tr><td>Semana 5</td><td><strong>Migración y marcha en paralelo</strong>: el equipo prueba la agenda nueva sin apagar la actual.</td></tr>
+    <tr><td>Semana 6</td><td><strong>Ajustes y capacitación.</strong> La agenda nueva pasa a ser la oficial.</td></tr>
+  </table>
+  <p class="tx">
+    La marcha en paralelo es deliberada: la agenda actual no se apaga hasta que el equipo trabaje
+    cómodo con la nueva.
+  </p>
+
+  <h2 class="sec"><span class="n">04</span>Lo que no incluye</h2>
+  <ul class="li no">
+    <li><strong>Historia clínica.</strong> Es una agenda administrativa: no guarda diagnósticos, tratamientos aplicados ni fotos médicas, que tienen su propia regulación.</li>
+    <li><strong>Cobros o caja.</strong></li>
+    <li><strong>Que la paciente consulte y gestione sus propias citas</strong>: llega con la etapa 2, a través de Sofía en la web.</li>
+    <li><strong>Recordatorio automático por WhatsApp</strong>, sin que nadie pulse el botón: llega con la etapa 2, sobre Kommo.</li>
+  </ul>
+
+  <div class="box box-a">
+    <div class="box-head">Datos de pacientes</div>
+    <p>
+      La agenda guarda datos personales, protegidos conforme a la Ley 29733, con acceso solo para el
+      equipo y según su rol. Como responsable de esos datos, a Okara le corresponde inscribir su banco
+      de datos de pacientes ante la Autoridad Nacional de Protección de Datos Personales y contar con el
+      consentimiento de las pacientes para enviarles recordatorios; la ficha incluye el campo para
+      registrarlo.
+    </p>
+  </div>
+
+  <h2 class="sec"><span class="n">05</span>Inversión</h2>
+  
+  <div class="price-grid one">
+    <div class="pcard pcard-a">
+      <div class="pk">Implementación</div>
+      <div class="pv">S/ 3,500 <small>+ IGV</small></div>
+      <div class="pn">Pago único al iniciar la etapa</div>
+      
+      <table class="bill">
+        <tr><td>Subtotal</td><td>S/ 3,500.00</td></tr>
+        <tr><td>IGV (18%)</td><td>S/ 630.00</td></tr>
+        <tr class="tot"><td>Total factura</td><td>S/ 4,130.00</td></tr>
+      </table>
+    </div>
+    
+  </div>
+  <p class="billnote">Se emite factura electrónica.</p>
+  <p class="tx">
+    <strong>Plazo: 6 semanas.</strong> No genera consumos adicionales de plataformas: los
+    recordatorios por correo salen desde la infraestructura que la web ya tiene.
+  </p>
+
+  <div class="foot">
+    Okara · Clínica Estética — Propuesta válida 30 días. Los precios se expresan sin IGV; el total de
+    cada factura figura en el desglose. Los consumos de plataformas, cuando los hay, se facturan
+    directamente a la clínica según uso real. El plazo corre
+    desde el pago y la entrega de la información que le corresponde a la clínica.
+  </div>
+
+</div>
+
+</body>
+</html>

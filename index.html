@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="robots" content="noindex, nofollow" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Okara · Propuesta en tres etapas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ivory:#FAF7F2; --bone:#F1ECE3; --sand:#E6DFD2;
+    --mocha:#8E7C68; --cocoa:#3F352B; --night:#1C1814;
+    --gold:#B89968; --golden:#D4B98A; --paper:#FBFAF7;
+    --ease:cubic-bezier(.22,.61,.36,1);
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:var(--ivory); color:var(--night); font-family:'Inter',sans-serif; line-height:1.7;
+         -webkit-font-smoothing:antialiased; min-height:100vh; }
+  .wrap { max-width:68rem; margin:0 auto; padding:4.5rem 1.5rem 3rem; }
+  .brand { font-family:'Cormorant Garamond',serif; font-size:30px; letter-spacing:.28em; }
+  .brand-sub { font-size:10px; letter-spacing:.3em; text-transform:uppercase; color:var(--mocha); }
+  .tag { margin-top:3.5rem; font-size:11px; letter-spacing:.3em; text-transform:uppercase; color:var(--mocha); }
+  h1 { font-family:'Cormorant Garamond',serif; font-weight:400; font-size:clamp(40px,6vw,68px); line-height:1.05; margin-top:.5rem; }
+  h1 em { color:var(--gold); }
+  .lede { max-width:56ch; color:var(--cocoa); margin-top:1rem; font-size:16px; }
+
+  .grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.2rem; margin-top:3rem; }
+  .card { display:flex; flex-direction:column; background:var(--paper); border:1px solid var(--sand); border-radius:16px;
+          padding:1.6rem; text-decoration:none; color:inherit;
+          transition:transform .5s var(--ease), box-shadow .5s var(--ease), border-color .5s var(--ease); }
+  .card:hover { transform:translateY(-4px); border-color:var(--gold); box-shadow:0 24px 50px -28px rgba(28,24,20,.4); }
+  .n { font-size:10.5px; letter-spacing:.24em; text-transform:uppercase; color:var(--gold); font-weight:600; }
+  .t { font-family:'Cormorant Garamond',serif; font-size:30px; line-height:1.1; margin-top:.4rem; }
+  .d { font-size:14px; color:var(--cocoa); margin-top:.7rem; flex:1; }
+  .meta { margin-top:1.3rem; padding-top:.9rem; border-top:1px solid var(--sand); font-size:12px; color:var(--mocha);
+          display:flex; justify-content:space-between; gap:.5rem; flex-wrap:wrap; }
+  .meta strong { color:var(--night); font-weight:600; }
+  .go { margin-top:1rem; font-size:11px; letter-spacing:.22em; text-transform:uppercase; color:var(--night); }
+  .card:hover .go { color:var(--gold); }
+  .pdfs { margin-top:2.2rem; font-size:12.5px; color:var(--mocha); }
+  .pdfs a { color:var(--cocoa); margin-right:1.2rem; }
+  .pdfs a:hover { color:var(--gold); }
+  .foot { margin-top:3.5rem; padding-top:1.2rem; border-top:1px solid var(--sand); font-size:12px; color:var(--mocha); }
+
+  @media (max-width:860px) { .grid { grid-template-columns:1fr; } .wrap { padding:3rem 1rem 2rem; } }
+</style>
+</head>
+<body>
+<main class="wrap">
+  <div class="brand">OKARA</div>
+  <div class="brand-sub">Clínica Estética</div>
+
+  <p class="tag">— Propuesta · Septiembre 2026</p>
+  <h1>De la agenda a la atención<br/><em>a toda hora.</em></h1>
+  <p class="lede">
+    Tres etapas que se construyen una sobre otra: primero una agenda única para toda la clínica,
+    después todas las conversaciones en un solo lugar y, al final, una asesora virtual que atiende
+    las 24 horas.
+  </p>
+
+  <div class="grid">
+    <a class="card" href="etapa-1/">
+      <div class="n">Etapa 1</div>
+      <div class="t">Agenda integrada</div>
+      <p class="d">Una sola agenda para las dos sedes, dentro de la web, sincronizada con Google Calendar y sin dobles reservas.</p>
+      <div class="meta"><span><strong>S/ 3,500</strong> + IGV</span><span>6 semanas</span></div>
+      <div class="go">Ver propuesta →</div>
+    </a>
+    <a class="card" href="etapa-2/">
+      <div class="n">Etapa 2</div>
+      <div class="t">Kommo inteligente</div>
+      <p class="d">WhatsApp, Instagram, Facebook y la web en una sola bandeja, y Sofía que reconoce a la paciente y le muestra sus citas.</p>
+      <div class="meta"><span><strong>S/ 3,500</strong> + IGV</span><span>5 semanas</span></div>
+      <div class="go">Ver propuesta →</div>
+    </a>
+    <a class="card" href="etapa-3/">
+      <div class="n">Etapa 3</div>
+      <div class="t">Asesora 24/7</div>
+      <p class="d">Una asesora virtual con voz propia que atiende todos los canales a cualquier hora y deriva a una persona cuando hace falta.</p>
+      <div class="meta"><span><strong>S/ 3,500</strong> + IGV</span><span>4 semanas</span></div>
+      <div class="go">Ver propuesta →</div>
+    </a>
+  </div>
+
+  <p class="pdfs">
+    En PDF:
+    <a href="pdf/etapa-1-agenda.pdf">Etapa 1</a>
+    <a href="pdf/etapa-2-kommo.pdf">Etapa 2</a>
+    <a href="pdf/etapa-3-asesora-24-7.pdf">Etapa 3</a>
+  </p>
+
+  <div class="foot">Okara · Clínica Estética — Propuesta válida 30 días. Precios sin IGV; el total de cada factura figura en cada propuesta.</div>
+</main>
+</body>
+</html>
