@@ -45,6 +45,7 @@
   .step.on { background:#fff; border-color:var(--gold); opacity:1; box-shadow:0 10px 30px -18px rgba(28,24,20,.35); }
   .step-n { font-size:10px; letter-spacing:.22em; text-transform:uppercase; color:var(--gold); font-weight:600; }
   .step-t { font-family:'Cormorant Garamond',serif; font-size:18px; line-height:1.2; color:var(--night); margin-top:.15rem; }
+  .step-d { font-size:11.5px; line-height:1.4; color:var(--mocha); margin-top:.25rem; }
 
   h2.sec { font-family:'Cormorant Garamond',serif; font-size:30px; line-height:1.15; color:var(--night); margin-top:2.4rem; }
   h2.sec .n { font-family:'Inter',sans-serif; color:var(--gold); font-size:12px; font-weight:600;
@@ -161,20 +162,23 @@
   <p class="lede">Un sistema de agenda clínica propio, dentro de la plataforma web que Okara ya tiene, en
     <strong>okara.pe/agenda</strong>. Recepción, call center y profesionales trabajan sobre el mismo
     calendario, desde la clínica o fuera de ella, sincronizado con <strong>Google Calendar</strong>, y
-    los recordatorios salen solos.</p>
+    los recordatorios se envían con un toque.</p>
 
   <div class="route">
     <div class="step on">
       <div class="step-n">Etapa 1 · esta propuesta</div>
       <div class="step-t">Agenda integrada</div>
+      <div class="step-d">La base, a mano</div>
     </div>
     <div class="step">
       <div class="step-n">Etapa 2</div>
       <div class="step-t">Kommo inteligente</div>
+      <div class="step-d">Todo se conecta y se automatiza</div>
     </div>
     <div class="step">
       <div class="step-n">Etapa 3</div>
-      <div class="step-t">Asesora 24/7</div>
+      <div class="step-t">Sofía 24/7</div>
+      <div class="step-d">Sofía sale de la web al mundo real</div>
     </div>
   </div>
 
@@ -233,7 +237,8 @@
   <div class="group">
     <div class="group-h">Recordatorios</div>
     <ul class="li">
-      <li><strong>Correo automático</strong> el día anterior a cada cita, con un enlace para confirmar o pedir reprogramación.</li>
+      <li><strong>Lista de recordatorios del día siguiente</strong>: la agenda muestra a quién falta avisarle, para que no se escape ninguna.</li>
+      <li><strong>Recordatorio por correo en un toque</strong>: recepción pulsa un botón y a la paciente le llega un correo con los datos de su cita y un enlace para confirmar o pedir reprogramación.</li>
       <li><strong>Recordatorio por WhatsApp en un toque</strong>: recepción pulsa un botón y se abre el chat con la paciente y el mensaje ya escrito.</li>
       <li>La confirmación de la paciente <strong>cambia sola el estado de la cita</strong> en la agenda.</li>
     </ul>
@@ -247,6 +252,15 @@
       <li><strong>Migración de la agenda actual</strong>: pasamos una sola vez los pacientes y las citas futuras desde el sistema de hoy.</li>
       <li><strong>Capacitación</strong> del equipo de recepción y call center.</li>
     </ul>
+  </div>
+
+  <div class="box box-a">
+    <div class="box-head">La base, a mano a propósito</div>
+    <p>
+      Primero la agenda tiene que ser confiable y el equipo tiene que trabajar cómodo en ella. Por eso en
+      esta etapa los avisos los envía una persona, con un toque. Automatizar sobre una agenda que todavía
+      se está adoptando multiplica los errores; en la etapa 2 se automatiza sobre datos ya probados.
+    </p>
   </div>
 
   <h2 class="sec"><span class="n">03</span>Cómo se construye</h2>
@@ -267,7 +281,7 @@
     <li><strong>Historia clínica.</strong> Es una agenda administrativa: no guarda diagnósticos, tratamientos aplicados ni fotos médicas, que tienen su propia regulación.</li>
     <li><strong>Cobros o caja.</strong></li>
     <li><strong>Que la paciente consulte y gestione sus propias citas</strong>: llega con la etapa 2, a través de Sofía en la web.</li>
-    <li><strong>Recordatorio automático por WhatsApp</strong>, sin que nadie pulse el botón: llega con la etapa 2, sobre Kommo.</li>
+    <li><strong>Recordatorios automáticos</strong> por correo y por WhatsApp, sin que nadie pulse un botón: llegan con la etapa 2.</li>
   </ul>
 
   <div class="box box-a">
@@ -300,7 +314,7 @@
   <p class="billnote">Se emite factura electrónica.</p>
   <p class="tx">
     <strong>Plazo: 6 semanas.</strong> No genera consumos adicionales de plataformas: los
-    recordatorios por correo salen desde la infraestructura que la web ya tiene.
+    correos salen desde la infraestructura que la web ya tiene.
   </p>
 
   <div class="foot">
